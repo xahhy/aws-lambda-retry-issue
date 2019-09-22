@@ -1,0 +1,14 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+    command: node --inspect=0.0.0.0 index.js
+    environment:
+      - "NODE_DEBUG=*"
+      # - 'NODE_DEBUG=HTTP,HTTPS,TIMER,NET,STREAM,TLS'
+    volumes:
+      - "${PWD}:/app"
+    ports:
+      - "9229:9229"
+    env_file: ".env"
